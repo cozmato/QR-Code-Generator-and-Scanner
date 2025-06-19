@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator And Scanner</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="logo">
+            <h1>QR Code</h1>
+          </div>
+        <input type="checkbox" id="toggler" />
+        <label for="toggler" class="burger">
+            <span class="bun bun--top">
+                <span class="bun__crust bun__crust--top"></span>
+            </span>
+            <span class="bun bun--bottom">
+                <span class="bun__crust bun__crust--bottom"></span>
+            </span>
+        </label>
+    
+          <ul>
+            <li><a href="#"> Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+
+      <div class="nav">
+        <span class="nav-gene active">Generator</span>
+        <span class="nav-scan">Scanner</span>
+      </div>
+
+      <div class="generator">
+        <section>
+            <h2>Generate Your QR Code</h2>
+            <form action="#" id="qrcode-settings">
+
+                <textarea id="qrcodeText" name="text" placeholder="Enter Your Text/Link"></textarea>
+
+                <div class="mt-10">
+                    <label for="bgColor">QR Code Background Color</label>
+                    <input type="color" id="bgColor" name="bgColor" value="#ffffff" />
+                </div>
+
+                <div class="mt-10">
+                    <label for="txtColor">QR Code Color</label>
+                    <input type="color" id="txtColor" name="txtColor" value="#000000" />
+                </div>
+
+                <div class="mt-10">
+                    <label for="qrcodeWidth">QR Code Width and Height</label>
+                    <input type="number" id="qrcodeWidth" name="qrcodeWidth" value="256" />
+                </div>
+
+
+
+                <div class="mt-10">
+                    <button id="generate-btn" type="submit" class="btn disabled" disabled>Generate</button>
+                </div>
+            </form>
+
+        </section>
+
+        <section>
+          <div class="moda hidden" tabindex="-1">
+
+            <div class="flex">
+                  <div class="btn-close ron">⨉</div>
+            </div>
+            <div class="result">
+            <div id="qrcode">
+            </div>
+            <div class="download-btn-container">
+                <div class="mt-10 italic">Your QR Code is ready to be downloaded.</div>
+                <button id="download-btn" class="btn mt-10">Download</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="overlay hidden"></div>
+
+        </section>
+      </div>
+
+      <div class="scanner" style="display: none;">
+
+        <section>
+            <h2>Scan Qr Codes</h2>
+            <div class="section">
+                <div class="secretInfoDiv">
+                    <h4>Scanned Code:</h4>
+                    <p class="secretInfo" id="secretInfo"></p>
+                </div>
+                <div id="my-qr-reader"></div>
+            </div>
+        </section>
+
+    </div>
+
+    </main>
+
+    <footer>
+        <div class="footer">
+          <div class="foot-con">
+              <div class="links m-3">
+                <h3 class="mt-3 mb-2">Quick links</h3>
+                <p class="mt-3"><a href="">About Us</a></p>
+                <p><a href="#">Contact Us</a></p>
+                <p><a href="#">Privacy policy</a></p>
+                <p><a href="#">Terms & Condition</a></p>
+                <p><a href="#">Disclaimer</a></p>
+              </div>
+              <div class="social-media m-3">
+                <h3 class="mt-3 mb-2">Social</h3>
+                  <div class="d-flex">
+                      <span class="m-2"><a href="https://twitter.com/JosephA17495328">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1DA1F2" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                      </svg></a> </span>
+                      <span class="m-2"><a href="https://www.quora.com/profile/Joseph-Abu-22">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-quora" viewBox="0 0 16 16">
+                        <path d="M8.73 12.476c-.554-1.091-1.204-2.193-2.473-2.193-.242 0-.484.04-.707.142l-.43-.863c.525-.45 1.373-.808 2.464-.808 1.697 0 2.568.818 3.26 1.86.41-.89.605-2.093.605-3.584 0-3.724-1.165-5.636-3.885-5.636-2.68 0-3.839 1.912-3.839 5.636 0 3.704 1.159 5.596 3.84 5.596.425 0 .811-.046 1.166-.15Zm.665 1.3a7 7 0 0 1-1.83.244C3.994 14.02.5 11.172.5 7.03.5 2.849 3.995 0 7.564 0c3.63 0 7.09 2.828 7.09 7.03 0 2.337-1.09 4.236-2.675 5.464.512.767 1.04 1.277 1.773 1.277.802 0 1.125-.62 1.179-1.105h1.043c.061.647-.262 3.334-3.178 3.334-1.767 0-2.7-1.024-3.4-2.224Z"/>
+                      </svg></a> </span>
+                      <span class="m-2"><a href="https://www.pinterest.com/kinmunto/">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-pinterest" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0"/>
+                      </svg></a> </span>
+                      <span class="m-2"><a href="https://www.linkedin.com/in/joseph-abu-442085205">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0a66c2" class="bi bi-linkedin" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                      </svg></a> </span>
+                  </div>
+              </div>
+          </div>
+          <hr>
+          <footer class="ta-c">Copyright © 2022-2025 Qr Code</footer>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="./html5-qrcode.min.js"></script>
+
+  </body>
+</html>
